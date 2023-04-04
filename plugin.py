@@ -1,11 +1,15 @@
 import json
 import os
+from dotenv import load_dotenv
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
+load_dotenv()
+
 SCOPES = ['https://googleapis.com/auth/spreadsheets']
-SPREADSHEET_ID = 'your_spreadsheet_id'
+SPREADSHEET_ID = '1XoKeX8eyShOSGBnktdJ78lU1iSP_Rjf3ckKPn9mhxBA'
+
 
 def append_records_to_spreadsheet(records):
     try:
@@ -27,6 +31,7 @@ def append_records_to_spreadsheet(records):
     except HttpError as error:
         print(f"An error occurred: {error}")
         return False
+
 
 if __name__ == '__main__':
     # test_data.json ファイルを開いてデータを読み込む
