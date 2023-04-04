@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "/transfer",
+    "url": "/openapi.yaml",
     "is_user_authenticated": false
   },
   "logo_url": "https://example.com/logo.png",

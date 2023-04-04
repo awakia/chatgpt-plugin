@@ -34,8 +34,9 @@ SPREADSHEET_ID = '1XoKeX8eyShOSGBnktdJ78lU1iSP_Rjf3ckKPn9mhxBA'
 
 
 def append_records_to_spreadsheet(records):
+    print(records)
     for record in records:
-        values = [record["timestamp"], record["text"]]
+        values = [record["timestamp"], record["message"]]
         print(values)
     return True
 

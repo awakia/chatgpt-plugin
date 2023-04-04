@@ -1,0 +1,81 @@
+openapi: 3.0.0
+info:
+  title: GPT-to-Spreadsheet API
+  description: A plugin that transfers records from ChatGPT to a spreadsheet.
+  version: 1.0.0
+  contact:
+    email: support@example.com
+  x-logo:
+    url: https://example.com/logo.png
+  x-legal-info-url: https://example.com/legal-info
+paths:
+  /transfer:
+    post:
+      operationId: transfer
+      summary: Transfer records to a spreadsheet
+      description: Transfers records from ChatGPT to a spreadsheet.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                records:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      # Define the properties of each record here
+                      # For example:
+                      timestamp:
+                        type: string
+                        format: date-time
+                      message:
+                        type: string
+                  example:
+                    - timestamp: "2023-04-04T12:34:56Z"
+                      message: "Hello, world!"
+      responses:
+        "200":
+          description: Transfer successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                example:
+                  status: "success"
+                  message: "Records transferred successfully."
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                example:
+                  status: "error"
+                  message: "Invalid request data."
+        "500":
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  message:
+                    type: string
+                example:
+                  status: "error"
+                  message: "An error occurred while processing the request."
