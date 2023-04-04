@@ -9,6 +9,30 @@ https://twitter.com/HaveShun/status/1643132967907389440?s=20
 デバッグの過程は、以下参照
 https://twitter.com/awakia/status/1643163343895822338?s=20
 
+## 動作のさせ方
+
+### ローカルで立ち上げる
+
+poetryを調べて使えるようにする
+
+```
+poetry install
+poetry run python app.py
+```
+
+`http://localhost:5050`にサービスが立ち上がるはず
+
+### ngrokで公開
+
+ngrokを調べて使えるようにする
+
+```
+ngrok http 5050
+```
+
+公開URLが出力されるはず
+e.g. https://524b-2407-c801-6100-3700-94d1-1a4-fe37-bb3e.jp.ngrok.io/
+
 ## 作る時の手順
 
 1. 提供するAPIの、OpenAPIのドキュメントを用意 (openapi.yaml)
