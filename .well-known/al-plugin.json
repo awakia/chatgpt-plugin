@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "GPT-to-Spreadsheet",
+  "name_for_model": "gpt_to_spreadsheet",
+  "description_for_human": "A plugin that transfers records from ChatGPT to a spreadsheet.",
+  "description_for_model": "A plugin that transfers records from ChatGPT to a spreadsheet.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "/transfer",
+    "is_user_authenticated": false
+  },
+  "logo_url": "https://example.com/logo.png",
+  "contact_email": "support@example.com",
+  "legal_info_url": "https://example.com/legal-info"
+}
