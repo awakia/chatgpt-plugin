@@ -6,31 +6,38 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 
 load_dotenv()
+credentials_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
 
 SCOPES = ['https://googleapis.com/auth/spreadsheets']
 SPREADSHEET_ID = '1XoKeX8eyShOSGBnktdJ78lU1iSP_Rjf3ckKPn9mhxBA'
 
 
+# def append_records_to_spreadsheet(records):
+#     try:
+#         creds = service_account.Credentials.from_service_account_file(credentials_path, scopes=SCOPES)
+#         service = build('sheets', 'v4', credentials=creds)
+#         for record in records:
+#             values = [record["timestamp"], record["text"]]
+#             body = {
+#                 'values': [values]
+#             }
+#             service.spreadsheets().values().append(
+#                 spreadsheetId=SPREADSHEET_ID,
+#                 range='A:B',
+#                 valueInputOption='RAW',
+#                 insertDataOption='INSERT_ROWS',
+#                 body=body).execute()
+#         return True
+#     except HttpError as error:
+#         print(f"An error occurred: {error}")
+#         return False
+
+
 def append_records_to_spreadsheet(records):
-    try:
-        creds = service_account.Credentials.from_service_account_info(
-            json.loads(os.environ['GOOGLE_APPLICATION_CREDENTIALS']), SCOPES)
-        service = build('sheets', 'v4', credentials=creds)
-        for record in records:
-            values = [record["timestamp"], record["text"]]
-            body = {
-                'values': [values]
-            }
-            service.spreadsheets().values().append(
-                spreadsheetId=SPREADSHEET_ID,
-                range='A:B',
-                valueInputOption='RAW',
-                insertDataOption='INSERT_ROWS',
-                body=body).execute()
-        return True
-    except HttpError as error:
-        print(f"An error occurred: {error}")
-        return False
+    for record in records:
+        values = [record["timestamp"], record["text"]]
+        print(values)
+    return True
 
 
 if __name__ == '__main__':
